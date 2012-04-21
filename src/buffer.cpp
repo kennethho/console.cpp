@@ -30,7 +30,7 @@ std::streamsize Buffer::xsputn( const char * s, std::streamsize n ) {
 }
 
 int Buffer::overflow( int c ) {
-	return this->std::streambuf::overflow( c );
+	return this->out_->sputc( c );
 }
 
 Buffer::~Buffer() {
