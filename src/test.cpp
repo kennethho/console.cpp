@@ -1,6 +1,6 @@
 #include "operators.hpp"
 #include <sstream>
-#if(0)
+
 void test()
 {
   std::ostringstream oss;
@@ -11,4 +11,3 @@ void test()
   int v;
   (iss >> v).str("test");
 }
-#endif
