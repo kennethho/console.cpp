@@ -8,7 +8,24 @@
 #include <boost/type_traits/is_same.hpp>
 #include <boost/mpl/or.hpp>
 #include <boost/mpl/not.hpp>
+#include "console.hpp"
 
+#if(1)
+template <class T>
+Console& operator<<(Console& con, const T& x)
+{
+  std::ostream& base = con;
+  base << x;
+  return con;
+}
+template <class T>
+Console& operator>>(Console& con, T& x)
+{
+  std::istream& base = con;
+  base >> x;
+  return con;
+}
+#else
 template <class OutputStream, class T>
 typename boost::disable_if<
     boost::mpl::not_<
@@ -17,7 +34,7 @@ typename boost::disable_if<
     OutputStream& os, const T& x)
 {
   std::ostream& base = os;
-  base << x;
+  std::operator<<(base, x);
   return os;
 }
 
@@ -29,8 +46,8 @@ typename boost::disable_if<
     InputStream& is, const T& x)
 {
   std::istream& base = is;
-  base >> x;
+  std::operator>>(base, x);
   return is;
 }
-
+#endif
 #endif // OPERATORS_HPP
