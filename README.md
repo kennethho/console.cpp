@@ -1,7 +1,7 @@
 Console.CPP
 ===========
 
-C++ console object and return-type preserving stream insertion/extraction operators.
+C++ console object and return-type preserving IOStream insertion/extraction operators.
 
 <pre>
 string name;
