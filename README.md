@@ -1,4 +1,4 @@
-console.cpp
+Console.CPP
 ===========
 
 C++ console object and return-type preserving stream insertion/extraction operators.
